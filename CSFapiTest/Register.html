@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Register User</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script>
+       // var xhr = new XMLHttpRequest();
+        //xhr.open('POST', 'https://myteamcare.org/ics.ashx', true);
+       // xhr.setRequestHeader('action', 'register');
+       // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+       // xhr.onload = function() { alert(xhr.responseText); };
+        //xhr.onerror = function () { alert("There was an error") };
+        //xhr.send("Username=provider2&Password=Temp1234&TaxId=464535808&FirstName=Sammy&LastName=Tester&Email=tiffany@blackstarmedia.org&Question1=What is your favorite pet's name&Answer1=Trina&Question2=What was your highschool mascot&Answer2=Eagle&Question3=Who was your childhood hero&Answer3=BenCarson");
+
+        
+   </script>
+</head>
+<body>
+    <center>
+        <img src="https://myteamcare.org/img/reg-logo-200x50.png">
+        <h3>Provider App - Registration</h3>
+    </center>
+    <br />
+    <form id="register-form2" style="display: none;">
+        <div class="form-group">
+            <input type="text" class="form-control" id="Username" name="Username" placeholder="Username" required>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" id="Password" name="Password" placeholder="Password" required>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="TaxId" name="TaxId" placeholder="TaxId" required>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="FirstName" name="FirstName" placeholder="First Name" required>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="LastName" name="LastName" placeholder="Last Name" required>
+        </div>
+        <div class="form-group">
+            <input type="email" class="form-control" id="Email" name="Email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+            <input type="tel" class="form-control" id="PrimaryPhone" name="PrimaryPhone" placeholder="Primary Phone">
+        </div>
+        <div class="form-group">
+            <input type="tel" class="form-control" id="SecondaryPhone" name="SecondaryPhone" placeholder="Mobile Phone">
+        </div>
+        <div class="form-group">
+            <select class="form-control" name="Question1" required>
+                <option value="" selected disabled>Security Question 1</option>
+                <option value="What is your childhood nickname">What is your childhood nickname?</option>
+                <option value="What is your favorite pet's name">What is your favorite pet's name?</option>
+                <option value="What is the name of your childhood best friend">What is the name of your childhood best friend?</option>
+                <option value="What school did you attend for sixth grade">What school did you attend for sixth grade?</option>
+                <option value="What is the name of your favorite childhood teacher">What is the name of your favorite childhood teacher?</option>
+                <option value="What was your dream job as a child">What was your dream job as a child?</option>
+                <option value="What is the street number of the house you grew up in">What is the street number of the house you grew up in?</option>
+                <option value="Who was your childhood hero">Who was your childhood hero?</option>
+                <option value="What is your grandmother's first name">What is your grandmother's first name?</option>
+                <option value="What is your mother's maiden name">What is your mother's maiden name?</option>
+                <option value="What was the make and model of your first car">What was the make and model of your first car?</option>
+                <option value="In what city and country do you want to retire">In what city and country do you want to retire?</option>
+                <option value="What was your high school mascot">What was your high school mascot?</option>
+                <option value="What year did you graduate from Grammar School">What year did you graduate from Grammar School?</option>
+                <option value="What is the name of the first school you attended">What is the name of the first school you attended?</option>
+
+            </select>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" id="Answer1" name="Answer1" placeholder="Answer 1" required>
+        </div>
+        <div class="form-group">
+            <select class="form-control" name="Question2" required>
+                <option value="" selected disabled>Security Question 2</option>
+                <option value="What is your childhood nickname">What is your childhood nickname?</option>
+                <option value="What is your favorite pet's name">What is your favorite pet's name?</option>
+                <option value="What is the name of your childhood best friend">What is the name of your childhood best friend?</option>
+                <option value="What school did you attend for sixth grade">What school did you attend for sixth grade?</option>
+                <option value="What is the name of your favorite childhood teacher">What is the name of your favorite childhood teacher?</option>
+                <option value="What was your dream job as a child">What was your dream job as a child?</option>
+                <option value="What is the street number of the house you grew up in">What is the street number of the house you grew up in?</option>
+                <option value="Who was your childhood hero">Who was your childhood hero?</option>
+                <option value="What is your grandmother's first name">What is your grandmother's first name?</option>
+                <option value="What is your mother's maiden name">What is your mother's maiden name?</option>
+                <option value="What was the make and model of your first car">What was the make and model of your first car?</option>
+                <option value="In what city and country do you want to retire">In what city and country do you want to retire?</option>
+                <option value="What was your high school mascot">What was your high school mascot?</option>
+                <option value="What year did you graduate from Grammar School">What year did you graduate from Grammar School?</option>
+                <option value="What is the name of the first school you attended">What is the name of the first school you attended?</option>
+
+            </select>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" id="Answer2" name="Answer2" placeholder="Answer 2" required>
+
+        </div>
+        <div class="form-group">
+            <select class="form-control" name="Question3" required>
+                <option value="" selected disabled>Security Question 3</option>
+                <option value="What is your childhood nickname">What is your childhood nickname?</option>
+                <option value="What is your favorite pet's name">What is your favorite pet's name?</option>
+                <option value="What is the name of your childhood best friend">What is the name of your childhood best friend?</option>
+                <option value="What school did you attend for sixth grade">What school did you attend for sixth grade?</option>
+                <option value="What is the name of your favorite childhood teacher">What is the name of your favorite childhood teacher?</option>
+                <option value="What was your dream job as a child">What was your dream job as a child?</option>
+                <option value="What is the street number of the house you grew up in">What is the street number of the house you grew up in?</option>
+                <option value="Who was your childhood hero">Who was your childhood hero?</option>
+                <option value="What is your grandmother's first name">What is your grandmother's first name?</option>
+                <option value="What is your mother's maiden name">What is your mother's maiden name?</option>
+                <option value="What was the make and model of your first car">What was the make and model of your first car?</option>
+                <option value="In what city and country do you want to retire">In what city and country do you want to retire?</option>
+                <option value="What was your high school mascot">What was your high school mascot?</option>
+                <option value="What year did you graduate from Grammar School">What year did you graduate from Grammar School?</option>
+                <option value="What is the name of the first school you attended">What is the name of the first school you attended?</option>
+
+            </select>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" id="Answer3" name="Answer3" placeholder="Answer 3" required>
+        </div>
+        <div class="form-group">
+
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register As Provider">
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <label>Do you agree to HIPPA laws?</label>
+    <input class="form-control" type="checkbox" id="Agreement" name="Agreement" required>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+</body>
+</html>

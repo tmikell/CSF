@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Check User Benefits</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://myteamcare.org/ics.ashx', true);
+        xhr.setRequestHeader('action', 'check');
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.onload = function() { alert(xhr.responseText); };
+        xhr.onerror = function () { alert("There was an error") };
+        xhr.send("Username=provider&Password=Temp1234&Birthdate=10/22/1955&Umissn=806010034");
+
+
+   </script>
+</head>
+<body>
+
+    <button>Send an HTTP POST request to a page and get the result back</button>
+
+</body>
+</html>

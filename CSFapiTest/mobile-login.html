@@ -1,0 +1,632 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>
+        Login || MyTeamCare.org - Provider
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/mobile.js"></script>
+    <!-- styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/mobile.css" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.ico" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.ico" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.ico" />
+    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.ico" />
+    <link rel="shortcut icon" href="ico/teamcare-heart.ico" />
+
+    <!-- Insert "extraHeader" markup here -->
+    <!-- Insert extraHeader Content -->
+
+
+
+</head>
+<body>
+    <script src="analyticstaghandler.axd?SiteURL=myteamcare.org&url=/mobile/login.aspx" type="text/javascript"></script>
+
+    <!-- Google Tag Manager -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-TFP2M6"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','datalayer','GTM-TFP2M6');</script>
+    <!-- End Google Tag Manager -->
+    <div id="wrapper">
+        <header class="navbar navbar-default navbar-static-top loginNavbar" role="navigation">
+            <div class="container">
+                <div class="container navbar-header col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <a class="row navbar-brand csf-navbar-brand-login col-xs-12 col-sm-6 col-md-6 col-lg-6" href="/mobile"><img class="logoHeader" style="align-content:center" src="images/reg-logo-200x50.png" /></a>
+                </div>
+            </div>
+        </header><!-- /.navbar -->
+
+        <div class="container mainContent">
+            <div class="row row-offcanvas row-offcanvas-right">
+                <div class="csf-form-col">
+                    <div id="logoutSpeedBumpModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title" id="myModalLabel">Log Out</h4>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure you want to log out?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                    <a href="#" id="logoutSpeedBumpContinue" class="btn btn-primary">Confirm</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="speedBumpModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title" id="H1">Leaving Site</h4>
+                                </div>
+                                <div class="modal-body">
+                                    You are now leaving our website
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+                                    <a href="#" id="speedBumpContinue" class="btn btn-primary">OK</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container col-sm-12">
+                        <h4 class="text-csfdarkblue"></h4>
+                        <p>
+                          
+                        </p>
+                        <div id="alertMsgBox" class="alert alert-dismissable">
+                            <button type="button" class="close" id="closeAlertMsgBox" aria-hidden="true">&times;</button>
+                            <span id="alertMsg"></span>
+                        </div>
+                    </div>
+
+
+
+
+                    <!-- Insert default "insideContent" markup here -->
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-5">
+                                <ul class="nav nav-tabs">
+                                    <li class="text-center active" style="width: 50%;">
+                                        <a href="#login" id="loginTab"
+                                           data-toggle="tab">Login</a>
+                                    </li>
+                                    <li class="text-center" style="width: 50%;">
+                                        <a href="#register" id="regTab" data-toggle="tab">
+                                            Register
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="login">
+                                        <div class="well">
+                                            <form method="post" action="/mobile/login.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="frmLogin" class="form-horizontal" role="form">
+                                                <div class="aspNetHidden">
+                                                    <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+                                                    <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+                                                    <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUENTM4MQ8WAh4TVmFsaWRhdGVSZXF1ZXN0TW9kZQIBZGQGEeOEuO5JPnSoBFnMg8jd/tUcXVeBb3O83OXTJGMogQ==" />
+                                                </div>
+
+                                                <script type="text/javascript">
+                                                    //<![CDATA[
+                                                    var theForm = document.forms['frmLogin'];
+                                                    if (!theForm) {
+                                                        theForm = document.frmLogin;
+                                                    }
+                                                    function __doPostBack(eventTarget, eventArgument) {
+                                                        if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+                                                            theForm.__EVENTTARGET.value = eventTarget;
+                                                            theForm.__EVENTARGUMENT.value = eventArgument;
+                                                            theForm.submit();
+                                                        }
+                                                    }
+                                                    //]]>
+                                                </script>
+
+
+                                                <script src="/WebResource.axd?d=-av5zJ27nuBB-THMTkoKtYwscQq5wujRCLZR9Ii7tqh5pHlXIVGl0ayvXx1fM_oNDCo4nnjXR369xThTqPRMokDlyuJE06FzvfQAlBNXASM1&amp;t=635307159759850499" type="text/javascript"></script>
+
+
+                                                <script src="/WebResource.axd?d=m3_PGuHqt_gzm5ZV9UQyIVUP1yIZ-gHtrY1DGwcQKPQTu2ZhGRmTkoMkSHcyS-JMCLo21HCU2UzEN_3kK8caBrwFlvY3qpi1vamfYmLK3jQ1&amp;t=635307159759850499" type="text/javascript"></script>
+                                                <script type="text/javascript">
+                                                    //<![CDATA[
+                                                    function WebForm_OnSubmit() {
+                                                        if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+                                                        return true;
+                                                    }
+                                                    //]]>
+                                                </script>
+
+
+                                                <div class="form-group">
+                                                    <input name="ctl00$ctl00$ctl00$ctl00$ctl00$ContentPlaceHolderDefault$insideContent$insideContent$insideContent$Login_3$txtUsername" type="text" id="ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_txtUsername" class="form-control" placeholder="Username" />
+                                                    <span id="ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_reqUsername" class="error" style="display:none;">Username is required</span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input name="ctl00$ctl00$ctl00$ctl00$ctl00$ContentPlaceHolderDefault$insideContent$insideContent$insideContent$Login_3$txtPassword" type="password" id="ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_txtPassword" class="form-control" placeholder="Password" />
+                                                    <span id="ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_reqPassword" class="error" style="display:none;">Password is required</span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="text-center col-xs-6"><a href="/mobile/forgot_username.aspx">Forgot username</a></div>
+                                                    <div class="text-center col-xs-6"><a href="/mobile/reset_password.aspx">Reset password</a></div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="submit" name="ctl00$ctl00$ctl00$ctl00$ctl00$ContentPlaceHolderDefault$insideContent$insideContent$insideContent$Login_3$btnSubmit" value="Log In" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ctl00$ctl00$ctl00$ctl00$ContentPlaceHolderDefault$insideContent$insideContent$insideContent$Login_3$btnSubmit&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_btnSubmit" class="btn btn-primary btn-block" />
+                                                </div>
+
+                                                <script type="text/javascript">
+                                                    //<![CDATA[
+                                                    var Page_Validators =  new Array(document.getElementById("ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_reqUsername"), document.getElementById("ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_reqPassword"));
+                                                    //]]>
+                                                </script>
+
+                                                <script type="text/javascript">
+                                                    //<![CDATA[
+                                                    var ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_reqUsername = document.all ? document.all["ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_reqUsername"] : document.getElementById("ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_reqUsername");
+                                                    ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_reqUsername.controltovalidate = "ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_txtUsername";
+                                                    ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_reqUsername.errormessage = "Username is required";
+                                                    ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_reqUsername.display = "Dynamic";
+                                                    ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_reqUsername.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+                                                    ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_reqUsername.initialvalue = "";
+                                                    var ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_reqPassword = document.all ? document.all["ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_reqPassword"] : document.getElementById("ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_reqPassword");
+                                                    ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_reqPassword.controltovalidate = "ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_txtPassword";
+                                                    ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_reqPassword.errormessage = "Password is required";
+                                                    ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_reqPassword.display = "Dynamic";
+                                                    ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_reqPassword.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+                                                    ContentPlaceHolderDefault_insideContent_insideContent_insideContent_Login_3_reqPassword.initialvalue = "";
+                                                    //]]>
+                                                </script>
+
+
+                                                <script type="text/javascript">
+                                                    //<![CDATA[
+
+                                                    var Page_ValidationActive = false;
+                                                    if (typeof(ValidatorOnLoad) == "function") {
+                                                        ValidatorOnLoad();
+                                                    }
+
+                                                    function ValidatorOnSubmit() {
+                                                        if (Page_ValidationActive) {
+                                                            return ValidatorCommonOnSubmit();
+                                                        }
+                                                        else {
+                                                            return true;
+                                                        }
+                                                    }
+                                                    //]]>
+                                                </script>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="register">
+                                        <div class="well">
+
+                                            <script src="/mobile/scripts/bootstrap-datepicker.min.js"></script>
+                                            <script src="/mobile/scripts/jquery.validate.min.js"></script>
+                                            <script>
+                                                var showCaptcha = true;
+                                            </script>
+                                            <script src="/mobile/scripts/registration.min.js"></script>
+                                            <link rel="stylesheet" href="/mobile/css/datepicker3.css">
+                                            <!-- Modal -->
+                                            <div id="myTermsModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                                                 aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                                ×
+                                                            </button>
+                                                            <h4 id="myModalLabel">
+                                                                Terms and Conditions
+                                                            </h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>These websites are maintained by the Central States, Southeast and Southwest Areas Health and Welfare and Pension Funds (hereinafter "Central States Funds"). The data contained on these sites is proprietary to or properly licensed to Central States Funds, and may not be copied, reproduced, duplicated, modified, distributed or disclosed without the approval of Central States Funds. Improper access and use of these websites is strictly prohibited and may subject an unauthorized user to criminal and civil penalties, including indemnification of Central States Funds for loss or damage caused by unauthorized use, including, without limitation, copyright or trademark infringement, or caused by unauthorized uploading or postings of any kind.</p>
+                                                            <p>You may use the content of this website to learn about the benefits and services of Central States Funds. The content of these websites is not, and shall not be construed as, a promise of benefits. All benefits are governed by the terms of applicable plan documents as interpreted by the Trustees. Central States Funds use their best efforts to maintain accurate content. However, no content should be relied upon without written confirmation from the Central States Funds. Central States Funds do not warrant the accuracy or completeness of the information, text, graphics, links, or other items contained on these sites, and do not warrant that this information will be applicable to any specific participant or beneficiary.</p>
+                                                            <p>This website is not intended to provide individual medical treatment advice or diagnosis. If individual medical or health care advice is needed, please consult a qualified health care provider. If emergency or crisis care is needed, call 911 or your local emergency services facility. Central States Funds expressly disclaim liability for errors or omissions in these materials, and disclaim all warranties, express or implied. In no event will Central States Funds, their suppliers, or other third parties mentioned at these sites be liable for any damages whatsoever arising out of the use, inability to use, or the results of use of these sites, any websites linked to this site, or the materials or information contained at any or all such sites. Central States Funds make no commitment to update the information contained in this site.</p>
+                                                            <p>You may interact with or download information from any portion of Central States Funds’ websites for the personal and noncommercial use by any participant or beneficiary of Central States Funds. However, you may not copy, reproduce, sell, publish, transmit, modify, display, repost, hyperlink or otherwise use or distribute any portion of the information and materials from Central States Funds’ websites for public or commercial purposes without the express written consent of the Central States Funds.</p>
+                                                            <p>This registered-users-only area of these websites contains protected health information subject to protection under the Health Insurance Portability and Accountability Act (“HIPAA”). The access, use or disclosure of such protected health information in violation of HIPAA may subject the offender to civil and/or criminal penalties.<br /><br />In order to access the registered-user-only areas of Central States Funds’ websites, you will need to establish and maintain a password and an email address. You acknowledge that the use of a password and email address is an adequate form of security. You are responsible for (1) authorizing, monitoring, controlling access to and maintaining the strict confidentiality of your password, (2) not allowing another person to use your password, (3) any charges or damages that may be incurred as a result of your neglect to maintain the strict confidentiality of your password, and (4) promptly informing Central States Funds in writing of any need to deactivate a password due to security concerns.</p>
+                                                            <p>Central States Funds are not liable for any harm related to the theft of passwords, disclosure of passwords, or your authorization to allow another person or entity to access and use Central States Funds’ websites using your password. You shall immediately notify Central States Funds of any unauthorized use of your password and any breach of confidentiality. Until Central States Funds receives this notification from you, you will be held liable for any harm ensuing from the use of your password on Central States Funds’ websites.</p>
+                                                            <p>Neither the Central States Funds, nor any of their affiliates, employees, agents, licensors or content providers make any representations or warranties of any kind regarding the content of Central States Funds’ websites. The content herein is provided as a service to users only. Nothing contained in this site constitutes investment advice. The content may change periodically as it is updated.</p>
+                                                            <p>Central States Funds’ websites contains links within the site to other websites not operated by Central States Funds. These links are provided as a convenience and do not constitute an affiliation with, endorsement or sponsorship of the third parties that operate those websites. Central States Funds are not responsible for the availability or reliability of the content of these third party websites. Any information you provide to those third parties is not subject to the terms of Central States Funds’ Privacy Policy, and Central States Funds are not responsible for the treatment of the information you provide to those third parties. We recommend that you review the privacy policy of that third party, and of any third party to whom you provide personally identifiable information online. Central States Funds do not regularly review materials posted on the linked sites, nor do they endorse all of the materials appearing at such sites. Any use of the links provided to other sites shall be at the sole risk of the user.</p>
+                                                            <p>Central States, Southeast and Southwest Areas Health and Welfare and Pension Funds™, the logo consisting of the block capital letters “CSS” arranged in a staggered vertical pattern superimposed over a silhouette map of that portion of the United States comprising the central, southwestern, and southeastern states, TEAMWORK®, and TeamCare® are trademarks or service marks of Central States Funds and cannot be used without written authorization by Central States Funds. CENTRAL STATES FUNDS EXPRESSLY RESERVE ANY AND ALL RIGHTS IN ALL CONTENT OF THE WEBSITES.</p>
+                                                            <p>This website uses Google Analytics™ and Google Custom Search™ to track activity on this website. These tools do not track individually identifiable information.</p>
+                                                            <p>The Central States Funds’ websites secure your private information by using a VeriSign SSL Certificate. Information exchanged in these websites is encrypted using SSL before transmission. The users of these websites may submit personal information to Central States Funds electronically by clicking "Submit" where indicated. Although Central States Funds take every effort to secure your personal information, the Funds are unable to ensure that the data submitted electronically will not be intercepted by third parties, regardless of whether the user selects a web browser with security features. All submission of personal information shall be at the user's own risk, and Central States Funds shall not be liable for any damages therefore, including consequential damages.</p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button class="btn" data-dismiss="modal" aria-hidden="true">
+                                                                Close
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Modal -->
+                                            <form id="userregistration-form" name="userregistration-form">
+                                                <div class="progress userRegistrationProgress">
+                                                    <div id="registrationProgress" class="progress-bar progress-bar-success" role="progressbar"
+                                                         aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
+                                                    </div>
+                                                </div>
+                                                <div id="sf0" class="panel-collapse collapse in">
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <h5 class="text-csfdarkblue" id="firstPageH5">
+                                                                <strong>Please verify your account.</strong>
+                                                            </h5>
+                                                            <p id="firstParagraph">
+                                                                All inputs are secured.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row" id="divUmiField">
+                                                            <div class="col-xs-11 csf-form-col">
+                                                                <input type="text" id="txtUmi" name="txtUmi" class="form-control col-xs-6" placeholder="Member ID" />
+                                                            </div>
+                                                            <div class="col-xs-1 csf-form-col csf-popover">
+                                                                <a id="tooltipUmi" data-toggle="popover" data-content="If you have a TeamCare card, enter the Unique Member Identifier (UMI) found on the front of your card. Otherwise, supply your SSN# with no hyphens. All information you enter is secure." rel="popover" data-placement="left"><span class='glyphicon glyphicon-info-sign'></span></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" id="divFirstNameField">
+                                                            <div class="row">
+                                                                <div class="col-xs-11 csf-form-col">
+                                                                    <input type="text" id="txtFirstNameForReminder" name="txtFirstNameForReminder" class="form-control col-xs-6" placeholder="First Name" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" id="divLastNameField">
+                                                            <div class="row">
+                                                                <div class="col-xs-11 csf-form-col">
+                                                                    <input type="text" id="txtLastNameForReminder" name="txtLastNameForReminder" class="form-control col-xs-6" placeholder="Last Name" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" id="divEmailField">
+                                                            <div class="row">
+                                                                <div class="col-xs-11 csf-form-col">
+                                                                    <input type="text" id="txtUmiToIgnoreEmail" name="txtUmiToIgnoreEmail" class="form-control col-xs-6" placeholder="Email Address" />
+                                                                </div>
+                                                                <div class="col-xs-1 csf-form-col csf-popover">
+                                                                    <a id="tooltipUmiToIgnoreEmail" data-toggle="popover" data-content="Enter an email address that will be used to let you know when you are able to register." rel="popover" data-placement="left"><span class='glyphicon glyphicon-info-sign'></span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group alert alert-success" id="divEmailSubmitConfirm">
+                                                        <div class="row" style="padding: 0 15px;">
+                                                            <h5>
+                                                                <strong>Your information has been submitted</strong>
+                                                            </h5>
+                                                            <p>We will email you as soon as you have access to register online.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" id="divUmiDescriptionField">
+                                                        <div class="row">
+                                                            <h5>
+                                                                <strong>Your Member ID should be one of the following:</strong>
+                                                            </h5>
+                                                            <ul style="padding-left: 20px;">
+                                                                <li>The Unique Member Identifier (UMI) found on the front of your TeamCare card</li>
+                                                                <li>The Social Security Number of the policy holder</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="ajaxLoaderSpinner row text-center">
+                                                            <p class="text-center hidden">
+                                                                <img src="/mobile/img/ajax-loader.gif" />
+                                                            </p>
+                                                            <button id="formNext1" name="formNext1" type="button" class="btn btn-primary btn-block" value="Validate Member ID"
+                                                                    title="Validate Member ID">
+                                                                Validate Member ID
+                                                            </button>
+                                                            <input type="hidden" id="Hidden1" value="0" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="sf1" class="panel-collapse collapse">
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <h5 class="text-csfdarkblue"><strong>Your Member ID has been verified!</strong></h5>
+                                                            <p>Please enter your personal information to verify your account.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-xs-11 csf-form-col mobileSelect">
+                                                                <select id="ddlRelationship" name="ddlRelationship">
+                                                                    <option value="">Relationship</option>
+                                                                    <option value="Subscriber">Subscriber (Participant)</option>
+                                                                    <option value="Spouse">Spouse</option>
+                                                                    <option value="Dependent">Child (18+)</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-xs-1 csf-form-col csf-popover">
+                                                                <a id="tooltipRelationship" data-toggle="popover" data-content="A subscriber is the primary policy holder. A spouse is the husband or wife covered under the primary policy holder's (subscriber's) account. A child is a person 18-26 years old covered under the primary policy holder's account." rel="popover" data-placement="left"><span class='glyphicon glyphicon-info-sign'></span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-xs-9 csf-form-col">
+                                                                <input type="text" id="txtFirstName" name="txtFirstName" class="form-control" placeholder="First Name" />
+                                                            </div>
+                                                            <div class="col-xs-1 csf-form-col">
+                                                                &nbsp;
+                                                            </div>
+                                                            <div class="col-xs-2 csf-form-col">
+                                                                <input type="text" id="txtMiddleInitial" class="form-control" placeholder="MI" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <input type="text" id="txtLastName" name="txtLastName" class="form-control" placeholder="Last Name" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-xs-11 csf-form-col">
+                                                                <input type="text" id="txtBirthDate" name="txtBirthDate" class="form-control" placeholder="Birth Date (mm/dd/yyyy)" />
+                                                            </div>
+                                                            <div class="col-xs-1 csf-form-col csf-popover">
+                                                                <a id="tooltipDOB" data-toggle="popover" data-content="Enter your Birthdate in format mm/dd/yyyy" rel="popover" data-placement="left"><span class='glyphicon glyphicon-info-sign'></span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-xs-5 csf-form-col">
+                                                                <input type="text" id="txtSSNLastFour" name="txtSSNLastFour" class="form-control"
+                                                                       placeholder="Last 4 of SSN" />
+                                                            </div>
+                                                            <div class="col-xs-1 csf-form-col csf-popover">
+                                                                <a id="tooltipSSN" data-toggle="popover" data-content="SSN Last Four Digits allows us to uniquely identify you. All information supplied is secure." rel="popover" data-placement="right"><span class='glyphicon glyphicon-info-sign'></span></a>
+                                                            </div>
+                                                            <div class="form-group col-xs-5 csf-form-col">
+                                                                <input type="text" id="txtZip" name="txtZip" class="form-control" placeholder="Zip Code" />
+                                                            </div>
+                                                            <div class="col-xs-1 csf-form-col csf-popover">
+                                                                <a id="tooltipZip" data-toggle="popover" data-content="Please provide your ZIP Code as it was provided to Central States. If you don't remember which ZIP Code you used, please contact us for assistance." rel="popover" data-placement="left"><span class='glyphicon glyphicon-info-sign'></span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <div class="row csf-form-col" id="recaptchaDiv" style="visibility: hidden">
+                                                            <script type="text/javascript" src="https://www.google.com/recaptcha/api/challenge?k=6LdIke4SAAAAAHNGviGkEaAJhGrSg3s3CMLL-x3Z">
+                                                            </script>
+                                                            <noscript>
+                                                                <iframe src="https://www.google.com/recaptcha/api/noscript?k=6LdIke4SAAAAAHNGviGkEaAJhGrSg3s3CMLL-x3Z"
+                                                                        height="300" width="500" frameborder="0"></iframe>
+                                                                <br>
+                                                                <textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+                                                                <input type="hidden" name="recaptcha_response_field" value="manual_challenge">
+                                                            </noscript>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <div class="row ajaxLoaderSpinner text-center">
+                                                            <p class="text-center hidden">
+                                                                <img src="/mobile/img/ajax-loader.gif" />
+                                                            </p>
+                                                            <button id="formBack0" name="formBack0" type="button" class="btn btn-primary" value="Back"
+                                                                    alt="Back" title="Back">
+                                                                Back
+                                                            </button>
+                                                            <button id="formNext2" name="formNext2" type="button" class="btn btn-primary" value="Retrieve Account"
+                                                                    title="Retrieve Account">
+                                                                Retrieve Account
+                                                            </button>
+                                                            <input type="hidden" id="txtWrong" value="0" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="sf2" class="panel-collapse collapse">
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <h5 class="text-csfdarkblue">
+                                                                <strong id="welcomeMsg">Thank you!</strong>
+                                                            </h5>
+                                                            <p>
+                                                                Please set up your account information.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-xs-11 csf-form-col">
+                                                                <input type="text" id="txtUsername" name="txtUsername" class="form-control" placeholder="Username" />
+                                                            </div>
+                                                            <div class="col-xs-1 csf-form-col csf-popover">
+                                                                <a id="tooltipUsername" data-toggle="popover" data-content="Username must be at least 8 characters and no more than 30 characters. Letters, numbers and some special characters are allowed." rel="popover" data-placement="left"><span class='glyphicon glyphicon-info-sign'></span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-xs-11 csf-form-col">
+                                                                <input type="text" id="txtEmail" name="txtEmail" class="form-control" placeholder="Email" />
+                                                            </div>
+                                                            <div class="col-xs-1 csf-form-col csf-popover">
+                                                                <a id="tooltipEmail" data-toggle="popover" data-content="Enter an email address that will be used as the contact email address for your account." rel="popover" data-placement="left"><span class='glyphicon glyphicon-info-sign'></span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-xs-11 csf-form-col">
+                                                                <input type="password" id="txtPassword" name="txtPassword" class="form-control" placeholder="Password" />
+                                                            </div>
+                                                            <div class="col-xs-1 csf-form-col csf-popover">
+                                                                <a id="tooltipPassword" data-toggle="popover" data-content="Password must be at least 8 characters but no more than 30 characters and should include a minimum of 1 uppercase, 1 lowercase, and 1 number. Special characters are allowed." rel="popover" data-placement="left"><span class='glyphicon glyphicon-info-sign'></span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-xs-11 csf-form-col">
+                                                                <input type="password" id="txtConfirm" name="txtConfirm" class="form-control" placeholder="Confirm Password" />
+                                                            </div>
+                                                            <div class="col-xs-1 csf-form-col csf-popover">
+                                                                <a id="tooltipConfirm" data-toggle="popover" data-content="Must match Password exactly." rel="popover" data-placement="left"><span class='glyphicon glyphicon-info-sign'></span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <select id="ddlQuestions1" name="ddlQuestions1" class="form-control securityQuestions">
+                                                                <option value="">Security Question #1</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <input type="text" id="txtAnswer1" name="txtAnswer1" class="form-control" placeholder="Security Question #1 Answer" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <select id="ddlQuestions2" name="ddlQuestions2" class="form-control securityQuestions">
+                                                                <option value="">Security Question #2</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <input type="text" id="txtAnswer2" name="txtAnswer2" class="form-control" placeholder="Security Question #2 Answer" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <select id="ddlQuestions3" name="ddlQuestions3" class="form-control securityQuestions">
+                                                                <option value="">Security Question #3</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <input type="text" id="txtAnswer3" name="txtAnswer3" class="form-control" placeholder="Security Question #3 Answer" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="checkbox">
+                                                                <label style="color: #333;">
+                                                                    <input type="checkbox" name="tacAgreeCheck" id="tacAgreeCheck" />
+                                                                    I agree with the <a href="#myTermsModal" data-toggle="modal">Terms and Conditions</a>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ajaxLoaderSpinner form-group row text-center">
+                                                        <p id="P1" class="text-center hidden">
+                                                            <img src="/mobile/img/ajax-loader.gif" />
+                                                        </p>
+                                                        <button id="formBack1" name="formBack1" type="button" class="btn btn-primary" value="Back"
+                                                                alt="Back" title="Back">
+                                                            Back
+                                                        </button>
+                                                        <button id="formNext3" name="formNext3" type="button" class="btn btn-primary" value="Submit"
+                                                                alt="Submit" title="Submit">
+                                                            Submit
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div id="sf3" class="panel-collapse collapse">
+                                                    <div class="form-group row">
+                                                        <h5 class="text-csfdarkblue">
+                                                            <strong>Complete!</strong>
+                                                        </h5>
+                                                        <p id="completeMsg">
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="loginLinks" class="col-xs-12 col-sm-offset-1 col-sm-5">
+                                <div class="col-xs-6 col-sm-12 vbtmoffset2 ds-btn-container">
+                                    <div class="ds-btn">
+                                        <a class="" href="/mobile/find_a_provider.aspx">
+                                            <i class="glyphicon glyphicon-search pull-left csfLoginGlyphicon">
+                                            </i><span>Find a Provider</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-12 vbtmoffset2 ds-btn-container">
+                                    <div class="ds-btn">
+                                        <a class="" href="/mobile/contact_us.aspx">
+                                            <i class="glyphicon glyphicon-comment pull-left csfLoginGlyphicon">
+                                            </i><span>Contact Us</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-12 vbtmoffset2 ds-btn-container">
+                                    <div class="ds-btn">
+                                        <a class="" href="/mobile/why_teamcare.aspx">
+                                            <i class="glyphicon glyphicon-heart pull-left csfLoginGlyphicon">
+                                            </i><span>Why TeamCare?</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-12 vbtmoffset2 ds-btn-container">
+                                    <div class="ds-btn">
+                                        <a class="" href="/mobile/mobile_faqs.aspx">
+                                            <i class="glyphicon glyphicon-phone pull-left csfLoginGlyphicon">
+                                            </i><span>Mobile FAQs</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-offset-1 col-sm-5">
+                                <div class="id-card-container">
+                                    <h4 class="mobile-id-icon">Need your ID Card?</h4>
+                                    <p>Login to your account and select "My ID Cards" from the menu.</p>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+
+
+
+                </div><!--/span-->
+            </div><!--/row-->
+            <a href="#" class="back-to-top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        </div><!--/.container-->
+        <footer>
+            <hr />
+            <p><a href="javascript:WriteFullSiteCookie();"><small>Full Site</small></a> | <a href="/mobile/copyright.aspx"><small>Copyright</small></a> | <a href="/mobile/legal.aspx"><small>Legal</small> </a></p>
+        </footer>
+    </div><!--/#wrapper-->
+</body>
+</html>

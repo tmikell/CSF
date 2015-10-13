@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+    <script src="https://code.jquery.com/mobile/git/jquery.mobile-git.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/mobile/git/jquery.mobile-git.css" />
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+
+
+    <title>Login to the App</title>
+   
+</head>
+<body>
+    <center>
+        <img src="https://myteamcare.org/img/reg-logo-200x50.png">
+        <h2>Provider App</h2>
+    </center>
+    <form id="loginform">
+      <label>Username<input type="text" name="Username" ></label>
+        <label>Password<input type="password" name="Password"></label>
+     <input type="submit" value="Login">
+
+    </form>
+
+    <script src="js/jquery-validate.js"></script>
+    
+    <script>
+        // When the document is ready
+        $(document).ready(function () {
+            //validation rules
+            $("#loginform").validate({
+                rules: {
+                    "Username": {
+                        required: true
+
+                    },
+                    "Password": {
+                        required: true
+                    }
+                },
+                //perform an AJAX post to API
+                submitHandler: function(form) {
+                    jQuery(form).ajaxSubmit({
+                        type: "POST",
+                        url: "https://myteamcare.org/ics.ashx",
+                        data: $(this).serialize(),
+                        headers: {
+                            "action": 'authenticate',
+                            "Content-type": "application/x-www-form-urlencoded",
+                        },
+                        success: function (data) {
+                            console.log(data);
+                            //window.location = 'memberdata.html';
+                        },
+                        error: function () { alert("There was an error") }
+                    });
+
+                }
+            });
+        });
+</script>
+        </body>
+        </html>
